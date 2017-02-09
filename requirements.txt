@@ -1,0 +1,11 @@
+appdirs==1.4.0
+APScheduler==3.3.1
+funcsigs==1.0.2
+futures==3.0.5
+packaging==16.8
+psycopg2==2.6.2
+pyparsing==2.1.10
+pytz==2016.10
+six==1.10.0
+trollius==2.1
+tzlocal==1.3
