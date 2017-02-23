@@ -2,7 +2,6 @@ import postgres
 import datetime
 import trollius as asyncio
 import logging
-# from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 def main():
