@@ -16,7 +16,6 @@ def start_scheduler(db):
     sched = AsyncIOScheduler()
     sched.daemonic = False
     sched.add_job(process_tweets, 'cron', second=0, args = [db])
-    sched.add_job(process_tweets, 'cron', second=0, args = [db])
     sched.start()
     
     try:

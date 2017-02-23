@@ -1,12 +1,12 @@
 from sklearn.externals import joblib
 import utils
 
-class Tweet_Classifier():
+class Classifier():
 
     def __init__(self):
 
-        self.spam_classifier = joblib.load('../models/spam_classifier.pkl')
-        self.pos_neg_classifier = joblib.load('../models/pos_neg_classifier.pkl')
+        self.spam_classifier = joblib.load('./models/spam_classifier.pkl')
+        self.pos_neg_classifier = joblib.load('./models/pos_neg_classifier.pkl')
 
     def classify(self, tweets):
         
@@ -20,13 +20,13 @@ class Tweet_Classifier():
 def split_spam_leg(tweets, spam_classifier):
 
     tweets = label_tweets(tweets, spam_classifier)
-    groups = spam_labelled_tweets.groupby("label")
+    groups = tweets.groupby("label")
 
     return {
-        "spam": spam_labelled_tweets.loc[groups.groups["spam"]],
-        "leg": spam_labelled_tweets.loc[groups.groups["leg"]]
+        "spam": tweets.loc[groups.groups["spam"]],
+        "leg": tweets.loc[groups.groups["leg"]]
     }
 
 def label_tweets(tweets, classifier):
     tweets["label"] = "N/A"
-    return utils.classifyDataframe(classifier tweets, 2)
+    return utils.classifyDataframe(classifier, tweets, 2)
