@@ -14,4 +14,7 @@ class Connection():
 
         curr = self.conn.cursor()
         curr.execute(sql)
-        return curr.fetchall()
+        result = curr.fetchall()
+        curr.close()
+        self.conn.commit()
+        return result 
